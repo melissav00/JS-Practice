@@ -16,8 +16,9 @@ window.onload = init;
 
 function checkPassword() {
   var pwd = document.getElementById("pw").value.toLowerCase();
-  pwd = unreal(pwd);
+  //pwd = unreal(pwd[0]);
   var is_present = false;
+  pwd = numbers(pwd)
   for (x=0; x < wordsList.length; x++)
   {
     if (pwd == wordsList[x])
@@ -35,7 +36,7 @@ function checkPassword() {
   }
 }
 
-function unreal(pwd){
+/*function unreal(pwd){
   pwd = pwd.replace(/1/g,"i");
   pwd = pwd.replace(/2/g,"z");
   pwd = pwd.replace(/3/g,"e");
@@ -46,4 +47,10 @@ function unreal(pwd){
   pwd = pwd.replace(/8/g,"b");
   pwd = pwd.replace(/0/g,"o");
   return pwd;
+}*/
+
+function numbers(pwd) {
+    var reg = /\d{4}$/;
+    var result = pwd.split(reg);
+    return result;
 }
